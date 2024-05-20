@@ -29,23 +29,24 @@ The dataset comprises textual answers along with associated metadata such as uni
 
 # Part 2
 
+# Sentiment Analysis on Twitter Entities
+
 ## Overview
-This project focuses on sentiment analysis using classification models. The objective is to predict the sentiment (positive, negative, or neutral) of Twitter entities based on their content. The dataset used for this task is the Twitter Entity Sentiment Analysis dataset, which contains tweets associated with different entities along with their sentiment labels.
+
+This project focuses on sentiment analysis using classification models to predict the sentiment (positive, negative, or neutral) of Twitter entities based on their content. The Twitter Entity Sentiment Analysis dataset is utilized, containing tweets associated with various entities and their corresponding sentiment labels.
 
 ## Dataset
-The dataset used for this project is the Twitter Entity Sentiment Analysis dataset, which can be found [here](https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis). It consists of tweets associated with various entities such as movies, games, and products, along with their corresponding sentiment labels (positive, negative, or neutral).
+
+The dataset consists of tweets associated with entities such as movies, games, and products, labeled with sentiments of positive, negative, or neutral.
 
 ## Preprocessing
-- The text data in the 'content' column underwent the following preprocessing steps:
-  - Tokenization
-  - Lowercasing
-  - Removal of HTML tags and URLs
-  - Removal of punctuation
-  - Removal of stopwords
-  - Lemmatization or stemming (optional)
+
+Text data in the 'content' column underwent preprocessing steps including tokenization, lowercasing, removal of HTML tags and URLs, punctuation, stopwords, and optional lemmatization or stemming.
 
 ## Models
-Several classification models were trained and evaluated on the preprocessed data:
+
+Several classification models were trained and evaluated:
+
 - Logistic Regression
 - Support Vector Machine (SVM)
 - Multinomial Naive Bayes
@@ -53,11 +54,24 @@ Several classification models were trained and evaluated on the preprocessed dat
 - Random Forest Classifier
 
 ## Training and Evaluation
-Each model was trained and evaluated using the TF-IDF vectorization approach. The data was split into training and testing sets with a test size of 20%. The accuracy and classification report were used as evaluation metrics for each model.
+
+Each model was trained and evaluated using the TF-IDF vectorization approach. The data was split into training and testing sets, with a test size of 20%. Accuracy and classification reports were used as evaluation metrics.
 
 ## Results
-The performance of each model was assessed based on its accuracy and classification report. The best-performing model was determined based on these metrics.
+
+The models performed poorly with CBOW vectorization:
+
+- SVM achieved an accuracy of 0.55, showing imbalanced precision and recall.
+- Naive Bayes achieved an accuracy of 0.43, with low precision and recall for certain classes.
+- Logistic Regression achieved an accuracy of 0.52, with moderate performance across classes.
+- AdaBoost achieved an accuracy of 0.49, showing similar performance as other models.
+
+However, using TF-IDF vectorization with Logistic Regression yielded significantly better results:
+
+- Logistic Regression achieved an accuracy of 0.78, with balanced precision, recall, and F1-score across classes.
 
 ## Conclusion
-Sentiment analysis is a crucial task in natural language processing, with applications in various domains such as social media monitoring, customer feedback analysis, and market research. By leveraging classification models, we can automate the process of sentiment analysis and gain valuable insights from textual data.
+
+While the models performed poorly with CBOW vectorization, TF-IDF vectorization coupled with Logistic Regression provided better results, showcasing the importance of feature representation in sentiment analysis tasks.
+
 
